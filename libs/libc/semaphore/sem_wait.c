@@ -159,7 +159,8 @@ int nxsem_wait(FAR sem_t *sem)
       int32_t old = 1;
       if (atomic_try_cmpxchg_acquire(NXSEM_COUNT(sem), &old, 0))
         {
-          return OK;
+          int ret = OK;
+          return ret;
         }
     }
 
